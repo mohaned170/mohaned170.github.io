@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c9962b">
 <link rel="manifest" href="manifest.json">
-  <title>موقع مؤندي</title>
+<title>ابن بركات</title>
 <style>
-body { background-color: lightblue; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:sans-serif;background:#f7f3ea;color:#222;padding-bottom:80px}
+header{background:linear-gradient(135deg,#e8bf5a,#b8821f);color:#fff;padding:36px 20px 50px;text-align:center;border-radius:0 0 30px 30px;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+header img{width:80px;height:80px;border-radius:20px;border:3px solid #fff;margin-bottom:10px}
+header h1{font-size:28px}
+header p{opacity:.9;margin-top:6px}
+.sec{padding:20px}
+.sec h2{margin-bottom:12px;color:#8a5f10}
+.card{display:flex;align-items:center;gap:14px;background:#fff;padding:16px;margin-bottom:12px;border-radius:16px;text-decoration:none;color:#222;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.ic{background:#c9962b;color:#fff;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.card b{display:block}
+.card small{color:#888}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px;box-shadow:0 -3px 12px rgba(0,0,0,.12)}
+nav a{color:#8a5f10;text-decoration:none;font-size:14px;text-align:center}
 </style>
 </head>
 <body>
-<h1 style="color: darkred; text-align: center;">مؤندي</h1>
-<p>ده موقعي الشخصي</p>
-<h2 style="color: green; text-align: center;">حاجات بحبها</h2>
-<ul>
-<li>القهوة</li>
-<li>البرمجة</li>
-<li>الكورة</li>
-<li>الخرجات</li>
-<li>المزيكا</li>
-</ul>
-<a href="https://moha10790.sarhne.com">حسابي على صراحة</a>
-<hr>
-<h2>يؤميآت مؤندي</h2>
-<p>النهاردة اتعلمت ازاي اعمل موقع</p>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
-<style>
-.btn{display:block;background:#c9962b;color:#fff;text-align:center;padding:14px;margin:12px 0;border-radius:12px;font-size:18px;text-decoration:none}
-</style> 
-  <a class="btn" href="%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%A8%D8%B9%D8%A9%20%28%D9%86%D8%B8%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AD%D9%82%2C%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%A6%D9%84%D8%A9%20%D8%A7%D9%84%D8%AE%D8%A7%D8%B5%D8%A9%20%D8%A8%D9%87%D8%A7%29.pdf">📄 المحاضرة السابعة</a>
- <a class="btn" href="IMG_20261126_133524_490.jpg">🖼️ شوف الصورة</a>. 
+<header>
+<img src="icon-192.png" alt="">
+<h1>ابن بركات</h1>
+<p>مرجعك الأول للمحاضرات والملفات</p>
+</header>
+<div class="sec">
+<h2>المحاضرات</h2>
+<div id="list"></div>
+</div>
+<nav>
+<a href="#">🏠<br>الرئيسية</a>
+<a href="https://moha10790.sarhne.com">💬<br>صراحة</a>
+</nav>
+<script>
+var files = [
+  ["المحاضرة السابعة", "نظرية الحق والأسئلة", "المحاضرة السابعة (نظرية الحق,والاسئلة الخاصة بها).pdf"]
+];
+var box = document.getElementById("list");
+files.forEach(function(f){
+  var a = document.createElement("a");
+  a.className = "card";
+  a.href = encodeURIComponent(f[2]);
+  a.innerHTML = '<div class="ic">📄</div><div><b>' + f[0] + '</b><small>' + f[1] + '</small></div>';
+  box.appendChild(a);
+});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
+</script>
 </body>
 </html>
