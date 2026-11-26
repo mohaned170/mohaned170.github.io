@@ -2,19 +2,22 @@
   "name": "موقع مؤندي",
   "short_name": "مؤندي",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#c9962b",
   "theme_color": "#c9962b",
   "icons": [
     {
-      "src": "IMG_20261126_143657_793.jpg",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "IMG_20261126_143655_771.jpg",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
