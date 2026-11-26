@@ -1,0 +1,8 @@
+{
+  "name": "موقع مؤندي",
+  "short_name": "مؤندي",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#add8e6",
+  "theme_color": "#8b0000"
+}
