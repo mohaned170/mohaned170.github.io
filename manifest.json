@@ -1,11 +1,11 @@
 {
-  "name": "موقع مؤندي",
-  "short_name": "مؤندي",
+  "name": "47",
+  "short_name": "47",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0b1f4d",
-  "theme_color": "#0b1f4d", 
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "icon-192.png",
