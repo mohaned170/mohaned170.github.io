@@ -3,56 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1f4d">
+<meta name="theme-color" content="#000000">
 <link rel="manifest" href="manifest.json">
+<title>Mondy</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:sans-serif;background:#f3f4f8;color:#222;padding-bottom:80px}
-header{background:linear-gradient(135deg,#0b1f4d,#7a0f1e);color:#fff;padding:36px 20px 50px;text-align:center;border-radius:0 0 30px 30px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-header img{width:80px;height:80px;border-radius:20px;border:3px solid #fff;margin-bottom:10px}
-header h1{font-size:28px}
-header p{opacity:.9;margin-top:6px}
-.sec{padding:20px}
-.sec h2{margin-bottom:12px;color:#0b1f4d}
-.card{display:flex;align-items:center;gap:14px;background:#fff;padding:16px;margin-bottom:12px;border-radius:16px;text-decoration:none;color:#222;box-shadow:0 3px 10px rgba(0,0,0,.08)}
-.ic{background:#7a0f1e;color:#fff;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.card b{display:block}
-.card small{color:#888}
-nav{position:fixed;bottom:0;left:0;right:0;background:#0b1f4d;display:flex;justify-content:space-around;padding:10px;box-shadow:0 -3px 12px rgba(0,0,0,.25)}
-nav a{color:#fff;text-decoration:none;font-size:14px;text-align:center}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{display:none}html{scrollbar-width:none}
+body{font-family:sans-serif;background:#000;color:#fff}
+.top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;direction:ltr;background:linear-gradient(#000a,transparent)}
+.top button{background:none;border:0;color:#fff;font-size:24px;cursor:pointer;width:34px}
+.logo{font-family:Georgia,serif;letter-spacing:6px;font-size:22px;text-transform:uppercase}
+.left{display:flex;gap:14px}
+.hero{height:100vh;min-height:560px;background:#000 url(hero.jpg) center 40px/100% auto no-repeat;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:70px;text-align:center}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#000000dd);}
+.hero *{position:relative;z-index:2}
+.hero h2{font-family:Georgia,serif;font-weight:400;letter-spacing:3px;font-size:22px;margin-bottom:18px}
+.btns{display:flex;gap:10px}
+.btns a{background:#00d5ff;color:#000;text-decoration:none;width:128px;padding:20px 0;font-size:16px;text-align:center}
+.sec{padding:40px 22px;max-width:640px;margin:auto}
+.sec h3{font-family:Georgia,serif;font-weight:400;letter-spacing:4px;font-size:18px;margin-bottom:20px;text-align:center}
+.row{display:flex;justify-content:space-between;align-items:center;padding:20px 4px;border-bottom:1px solid #ffffff30;color:#fff;text-decoration:none}
+.row b{display:block;font-weight:400;font-size:17px}
+.row small{color:#00d5ff;font-size:13px}
+.row span{color:#00d5ff;font-size:22px}
+.menu{position:fixed;inset:0;background:#000;z-index:20;display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.menu.on{display:flex}
+.menu a{color:#fff;text-decoration:none;font-size:22px;letter-spacing:1px}
+.menu .x{position:absolute;top:16px;left:18px;background:none;border:0;color:#fff;font-size:30px}
+#q{display:none;width:100%;padding:14px;background:#000;border:1px solid #fff;color:#fff;font-size:16px;margin-bottom:14px}
+footer{text-align:center;color:#888;padding:30px;font-size:12px;letter-spacing:2px}
 </style>
 </head>
 <body>
-<header>
-<img src="icon-192.png" alt="">
-<h1 dir="ltr">Eng / Mohaned Barakat</h1>
-<p>مرجعك الأول للمحاضرات والملفات</p>
-</header>
-<div class="sec">
-<h2>المحاضرات</h2>
+<div class="top">
+<div class="left"><button id="mb">&#9776;</button><button id="sb">&#9906;</button></div>
+<div class="logo">Mondy</div>
+<div style="width:34px"></div>
+</div>
+<div class="menu" id="menu">
+<button class="x" id="xb">&times;</button>
+<a href="#lec">المحاضرات</a>
+<a href="#groups">الجروبات</a>
+</div>
+<section class="hero">
+<h2 style="font-size:30px;font-weight:700;margin-bottom:6px">Mondy</h2><p style="color:#00d5ff;margin-bottom:18px;letter-spacing:1px">مرجعك الأول للمحاضرات</p>
+<div class="btns"><a href="#lec">المحاضرات</a><a href="#groups">الجروبات</a></div>
+</section>
+<div class="sec" id="lec">
+<h3>LECTURES</h3>
+<input id="q" placeholder="ابحث عن محاضرة">
 <div id="list"></div>
 </div>
-<div class="sec">
-<h2>للتواصل</h2>
-<a class="card" href="tel:01069200768"><div class="ic">📞</div><div><b>اتصل بنا</b><small>01069200768</small></div></a>
-<a class="card" href="https://wa.me/201069200768"><div class="ic">💬</div><div><b>واتساب</b><small>01069200768</small></div></a>
+<div class="sec" id="groups">
+<h3>GROUPS</h3>
+<div id="glist"></div>
 </div>
-<nav>
-<a href="#">🏠<br>الرئيسية</a>
-<a href="tel:01069200768">📞<br>اتصال</a>
-</nav>
+<footer>MONDY</footer>
 <script>
-var files = [
-  ["المحاضرة السابعة", "نظرية الحق والأسئلة", "المحاضرة السابعة (نظرية الحق,والاسئلة الخاصة بها).pdf"]
+var subjects = [
+  {name:"مبادئ قانون", files:[
+    ["المحاضرة السابعة", "نظرية الحق والأسئلة", "المحاضرة السابعة (نظرية الحق,والاسئلة الخاصة بها).pdf"]
+  ]},
+  {name:"مبادئ اقتصاد", files:[
+  ]},
+  {name:"محاسبة مالية", files:[
+  ]},
+  {name:"إدارة أعمال", files:[
+  ]},
+  {name:"انجليزي", files:[
+  ]}
 ];
 var box = document.getElementById("list");
-files.forEach(function(f){
-  var a = document.createElement("a");
-  a.className = "card";
-  a.href = encodeURIComponent(f[2]);
-  a.innerHTML = '<div class="ic">📄</div><div><b>' + f[0] + '</b><small>' + f[1] + '</small></div>';
-  box.appendChild(a);
+var q=document.getElementById("q"),m=document.getElementById("menu");
+var cur=-1;
+function drawSubjects(){
+  cur=-1; q.style.display="none"; box.innerHTML="";
+  subjects.forEach(function(s,i){
+    var a=document.createElement("a");
+    a.className="row"; a.href="#lec";
+    a.innerHTML='<div><b>'+s.name+'</b><small>'+s.files.length+' ملف</small></div><span>&#8250;</span>';
+    a.onclick=function(e){e.preventDefault();drawFiles(i,"")};
+    box.appendChild(a);
+  });
+}
+function drawFiles(i,t){
+  cur=i; var s=subjects[i]; box.innerHTML="";
+  var back=document.createElement("a");
+  back.className="row"; back.href="#lec";
+  back.innerHTML='<div><b style="color:#00d5ff">&#8249; رجوع</b><small>'+s.name+'</small></div>';
+  back.onclick=function(e){e.preventDefault();drawSubjects()};
+  box.appendChild(back);
+  var n=0;
+  s.files.forEach(function(f){
+    if(t && (f[0]+f[1]).indexOf(t)<0) return;
+    n++;
+    var a=document.createElement("a");
+    a.className="row"; a.href=encodeURIComponent(f[2]);
+    a.innerHTML='<div><b>'+f[0]+'</b><small>'+f[1]+'</small></div><span>&#8250;</span>';
+    box.appendChild(a);
+  });
+  if(!n){var p=document.createElement("p");p.style.cssText="text-align:center;color:#888;padding:30px";p.textContent="لسه مفيش ملفات هنا";box.appendChild(p);}
+}
+drawSubjects();
+q.oninput=function(){ if(cur>=0) drawFiles(cur,q.value); };
+document.getElementById("sb").onclick=function(){ if(cur<0) drawFiles(0,""); q.style.display="block"; location.hash="lec"; q.focus(); };
+document.getElementById("mb").onclick=function(){m.classList.add("on")};
+document.getElementById("xb").onclick=function(){m.classList.remove("on")};
+m.onclick=function(e){if(e.target.tagName=="A")m.classList.remove("on")};
+var groups = [
+  ["جروب الدفعة 1", "https://chat.whatsapp.com/LoKyqoYglVp8CTsbgMYCHM"],
+  ["جروب الدفعة 2", "https://chat.whatsapp.com/BBdFgJfy7YQ4gtrPGwo5RI"],
+  ["جروب الدفعة 3", "https://chat.whatsapp.com/KvMS8V7fkEeBR3zUJT85UF"],
+  ["جروب الدفعة 4", "https://chat.whatsapp.com/CRaDTCkkfq09t0VTsIgAcK"]
+];
+var gb=document.getElementById("glist");
+groups.forEach(function(g){
+  var a=document.createElement("a");
+  a.className="row";a.href=g[1];
+  a.innerHTML='<div><b>'+g[0]+'</b><small>واتساب</small></div><span>&#8250;</span>';
+  gb.appendChild(a);
 });
+var q=document.getElementById("q"),m=document.getElementById("menu");
+q.oninput=function(){draw(q.value)};
+document.getElementById("sb").onclick=function(){q.style.display="block";location.hash="lec";q.focus()};
+document.getElementById("mb").onclick=function(){m.classList.add("on")};
+document.getElementById("xb").onclick=function(){m.classList.remove("on")};
+m.onclick=function(e){if(e.target.tagName=="A")m.classList.remove("on")};
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
 </script>
 </body>
